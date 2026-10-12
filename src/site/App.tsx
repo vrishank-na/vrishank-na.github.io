@@ -43,10 +43,11 @@ function App() {
       <section className="hero wrap" id="top">
         <p className="eyebrow hero-kicker"><span className="availability-dot" /> CSE undergraduate · Bengaluru, India</p>
         <h1>Vrishank N<br className="mobile-break" /> <span className="serif">Amembal</span></h1>
+        
         <div className="hero-bottom"><p className="hero-copy">I’m a Computer Science and Engineering undergraduate at PES University, interested in software engineering, machine learning, and building practical systems.</p>
-          <div className="hero-actions"><a className="primary-link" href="#projects">Explore selected work <span aria-hidden="true">↓</span></a><div className="social-links"><ArrowLink href={socials.github} external>GitHub</ArrowLink><ArrowLink href={socials.linkedin} external>LinkedIn</ArrowLink></div></div>
+          
         </div>
-        <div className="hero-index"><span>Portfolio · 2026</span><span>01 — 09</span></div>
+        <div className="hero-index"><span></span></div>
       </section>
 
       <section className="section wrap projects" id="projects"><SectionHeading number="01 / SELECTED WORK">Projects</SectionHeading>
