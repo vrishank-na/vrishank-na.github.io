@@ -16,7 +16,8 @@
     <title>Vrishank N Amembal — Portfolio</title>
     <script>
       (() => {
-        const saved = localStorage.getItem('theme');
+        let saved = null;
+        try { saved = localStorage.getItem('theme'); } catch { /* Storage can be disabled. */ }
         const theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.dataset.theme = theme;
       })();
