@@ -4,13 +4,15 @@ const socials = {
   github: 'https://github.com/vrishank-na',
   linkedin: 'https://www.linkedin.com/in/vrishank-amembal/',
 }
+// Add a path such as "/resume.pdf" when a resume is available in public/.
+const resumeHref: string | null = null
 
 function ThemeToggle() {
   const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'light')
   const toggle = () => {
     const next = theme === 'light' ? 'dark' : 'light'
     document.documentElement.dataset.theme = next
-    localStorage.setItem('theme', next)
+    try { localStorage.setItem('theme', next) } catch { /* The current page theme still changes. */ }
     setTheme(next)
   }
   return <button className="theme-toggle" onClick={toggle} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`} title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}>
@@ -70,7 +72,7 @@ function App() {
 
       <section className="contact-band" id="contact"><div className="wrap contact"><span className="eyebrow">07 / CONTACT</span><div><h2>Have something<br /><i>in mind?</i></h2><p>I’d be glad to hear from you.</p><a className="email-link" href="mailto:vrishankamembal@gmail.com">vrishankamembal@gmail.com <span aria-hidden="true">↗</span></a></div><div className="contact-socials"><ArrowLink href={socials.github} external>GitHub</ArrowLink><ArrowLink href={socials.linkedin} external>LinkedIn</ArrowLink></div></div></section>
     </main>
-    <footer className="footer wrap"><a className="wordmark" href="#top">V<span>.</span></a><span>© {new Date().getFullYear()} Vrishank N Amembal</span><a href="#top" className="back-top">Back to top ↑</a></footer>
+    <footer className="footer wrap"><a className="wordmark" href="#top">V<span>.</span></a><span>© {new Date().getFullYear()} Vrishank N Amembal</span><div className="footer-links">{resumeHref && <a href={resumeHref} download>Resume ↓</a>}<a href="#top" className="back-top">Back to top ↑</a></div></footer>
   </>
 }
 
